@@ -14,20 +14,20 @@ const errMiddleware =require("./middleware/error")
 
 
 
-app.post("/create" , catchAsyncError(async(req,res,next)=>{
+// app.post("/create" , catchAsyncError(async(req,res,next)=>{
          
 
-         const {email,password}=req.body
+//          const {email,password}=req.body
         
-        if(!email || !password){
-            next(new ErrorHandler("required",400))
-        }
-        else{
-            res.status(200).json({status:"true",message:"uuuuuuuuu"})
+//         if(!email || !password){
+//             next(new ErrorHandler("required",400))
+//         }
+//         else{
+//             res.status(200).json({status:"true",message:"uuuuuuuuu"})
     
-        }
+//         }
     
-}))
+// }))
 
 
 
