@@ -2,19 +2,18 @@
 const connection=require('./db/connection')
 const {app}=require("./app")
 require("dotenv").config()
-const port= process.env.PORT
+const port= process.env.PORT || 8050
 
 app.get("/testing",async(req,res)=>{
      
     res.send("hello")
 })
 
-app.listen(port,async()=>{
-    try {
-        await connection
-        console.log(`app is running on http://localhost:${port}`)
-    } catch (error) {
-         console.log(error)
-    }
-    
-})
+connection
+  .then(() => {
+    console.log("✅ Successfully connected to MongoDB");
+    app.listen(port, () => console.log(`🚀 App is running on http://localhost:${port}`));
+  })
+  .catch((error) => {
+    console.error("❌ MongoDB connection error:", error);
+  });

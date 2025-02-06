@@ -1,12 +1,15 @@
 const express=require('express')
-const {UserModel}=require('UserModel')
+const {UserModel}=require("../models/useModel")
 const bcrypt =require('bcrypt')
-const userRouter=express.Router()
+
 const{catchAsyncError} =require("../middleware/catchAsyncError")
 const {ErrorHandler} =require("../utils/errorHandler")
 const {sendMail}=require("../utils/mail")
+const jwt=require("jsonwebtoken")
+const upload =require("../middleware/multer")
+const userRouter=express.Router()
 
-userRouter.post("/signup",catchAsyncError(async(req,res)=>{
+userRouter.post("/signup",catchAsyncError(async(req,res,next)=>{
 
       
            const{name,email,password}= req.body
@@ -47,3 +50,36 @@ userRouter.post("/signup",catchAsyncError(async(req,res)=>{
 
      
 }))
+
+
+userRouter.get("/activation/:token",catchAsyncError(async(req,res,next)=>{
+        
+          let token=req.params.token
+          if(!token){
+                res.status(500).json("error")
+          }
+           jwt.verify(token,process.env.secrete,async(err,decoded)=>{
+                 if(err){
+                       res.status(500).json(error.message)
+                 }
+                 let id=decoded.id
+
+                 await UserModel.findByIdAndUpdate(id,{isActivated:true})
+
+                 res.status(200).json({message:"is Activated"})
+           })
+
+}))
+
+
+userRouter.post("/upload",upload.single("photo"),catchAsyncError(async(req,res,next)=>{
+      
+       if(!req.file){
+        next(new ErrorHandler("fjmlk",400))
+       }
+
+       res.status(200).json("fghjkl;'")
+}))
+
+
+module.exports=userRouter

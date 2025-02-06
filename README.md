@@ -99,3 +99,63 @@ Connected Node.js server using Mongoose with the MongoDB database for managing i
 Confirmed that the backend server is correctly connected with the MongoDB database.
 - +4. Error Handling
 Put in some elementary error handling which, in the event of some errors with the API calls returns meaningful messages to users and developers to debug from easily.
+
+
+
+# Milestone 4: User Model, Controller and File Uploads
+
+## Summary
+This milestone is to create a **User Model** for ordered data, to build out the **User Controllers** for the proper CRUD operations, and finally, add in **Multer** for file uploads. The backend should now have user management with the ability to upload images.
+
+---
+End
+
+## Features Implemented
+
+### 1. User Model
+
+- **Schema Fields**
+- `username` (String, required, unique)
+- `email` (String, required, unique)
+- `password` (String, required)
+- `profileImage` (String, upload path of the image)
+- `createdAt` & `updatedAt` (Timestamps)
+It makes use of Mongoose for schema validation and indexing.
+
+### 2. User Controller
+- **Methods**:
+- `createUser`: It creates a new user with error checking.
+- `getAllUsers`: Fetch all users from the database.
+- `getUserById`: It fetches a single user by ID and throws an error if it is invalid.
+- `updateUser`: Updates user details and his profile image.
+ 
+### 3. Multer File Uploads
+- **Config**:
+- Store all uploads in the `uploads/` folder
+- Only accept `image/jpeg` and `image/png`
+- Limit size to 5MB
+- **Route**: `POST /users/:id/upload` for profile pic upload
+
+-----
+
+## Technical Details
+
+### Database
+
+- **MongoDB**: NoSQL. It's dynamic information a user will have.
+- **Mongoose**: Schema modeling, query building, etc.
+
+### Multer Setup
+```javascript
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, 'uploads/,
+filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
+});
+```
+
+const upload = multer({
+storage
+limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+
+fileFilter: (req, file, cb) =>
+if (file.mimetype.startsWith('image/')) cb(null, true); else cb(new Error('Only images are allowed!'), false);

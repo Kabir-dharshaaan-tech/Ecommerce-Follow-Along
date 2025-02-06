@@ -9,25 +9,13 @@ app.use(express.json())
 const{catchAsyncError} =require("./middleware/catchAsyncError")
 const {ErrorHandler} =require("./utils/errorHandler")
 const errMiddleware =require("./middleware/error")
+const userRouter=require("../Back-end/controllers/userRoute")
+
+
+app.use("/user",userRouter)
 
 
 
-
-
-// app.post("/create" , catchAsyncError(async(req,res,next)=>{
-         
-
-//          const {email,password}=req.body
-        
-//         if(!email || !password){
-//             next(new ErrorHandler("required",400))
-//         }
-//         else{
-//             res.status(200).json({status:"true",message:"uuuuuuuuu"})
-    
-//         }
-    
-// }))
 
 
 
