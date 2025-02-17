@@ -56,11 +56,11 @@ userRouter.get("/activation/:token",catchAsyncError(async(req,res,next)=>{
         
           let token=req.params.token
           if(!token){
-                res.status(500).json("error")
+                next(new ErrorHandler("token not found",404))
           }
            jwt.verify(token,process.env.secrete,async(err,decoded)=>{
                  if(err){
-                       res.status(500).json(error.message)
+                      next(new ErrorHandler("token is not valid", 400))
                  }
                  let id=decoded.id
 
@@ -75,10 +75,46 @@ userRouter.get("/activation/:token",catchAsyncError(async(req,res,next)=>{
 userRouter.post("/upload",upload.single("photo"),catchAsyncError(async(req,res,next)=>{
       
        if(!req.file){
-        next(new ErrorHandler("fjmlk",400))
+        next(new ErrorHandler("File not found",400))
        }
 
-       res.status(200).json("fghjkl;'")
+       res.status(200).json("File uploaded Sucessfuly")
+}))
+
+
+userRouter.post('/login',catchAsyncError(async(req,res,next)=>{
+
+      const {email,password}=req.body;
+
+      if(!email || !password)
+      {
+            next(new ErrorHandler("email and password is required",400))
+      }
+      
+       let user=UserModel.findOne({email})
+       if(!user)
+       {
+            next(new ErrorHandler("please signup before login",400));
+       }
+       if(!user.isActivated)
+       {
+            next(new ErrorHandler("please activate before login",400));
+       }
+
+       let isMatching=await bcrypt.compare(password,user.password);
+       if(! isMatching)
+       {
+            next(new ErrorHandler("password is incorrect",400));
+       }
+
+       let token =jwt.sign({id:user_id},process.env.ACCESS,{expiresIn: 60*60*60*60*24*30})
+      
+       res.cookies("accesstoken",token,{
+            httpOnly:true,
+            MaxAge:"70"
+       })
+
+       res.status(200).json({statuc:true,message:"login successful"})
 }))
 
 
