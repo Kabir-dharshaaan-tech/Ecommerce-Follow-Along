@@ -1,7 +1,7 @@
 const express=require('express')
 const {UserModel}=require("../models/useModel")
 const bcrypt =require('bcrypt')
-
+require('dotenv').config()
 const{catchAsyncError} =require("../middleware/catchAsyncError")
 const {ErrorHandler} =require("../utils/errorHandler")
 const {sendMail}=require("../utils/mail")
@@ -16,7 +16,7 @@ userRouter.post("/signup",catchAsyncError(async(req,res,next)=>{
             if(!name || !email || !password){
               next(new ErrorHandler("requried",400))
             }
-            let user=UserModel.findOne({email})
+            let user= await UserModel.findOne({email})
             if(user){
                 next(new ErrorHandler("user is already signed, go with login",200))
             }
@@ -33,7 +33,7 @@ userRouter.post("/signup",catchAsyncError(async(req,res,next)=>{
 
                  let token=jwt.sign({id:newuser._id}, process.env.secrete, { expiresIn: 60 * 60*60*10 });
 
-                 let activation_url=`http://localhost:8052/user/activation/${token}`
+                 let activation_url=`http://localhost:${process.env.PORT}/user/activation/${token}`
 
                   await sendMail(
                     {
@@ -91,7 +91,8 @@ userRouter.post('/login',catchAsyncError(async(req,res,next)=>{
             next(new ErrorHandler("email and password is required",400))
       }
       
-       let user=UserModel.findOne({email})
+       let user=await UserModel.findOne({email})
+
        if(!user)
        {
             next(new ErrorHandler("please signup before login",400));
@@ -101,20 +102,28 @@ userRouter.post('/login',catchAsyncError(async(req,res,next)=>{
             next(new ErrorHandler("please activate before login",400));
        }
 
-       let isMatching=await bcrypt.compare(password,user.password);
-       if(! isMatching)
-       {
-            next(new ErrorHandler("password is incorrect",400));
-       }
+       bcrypt.compare(password, user.password, function(err, result) {
+          if(err){
+               next(new ErrorHandler("internal server error",500)); 
+          }
+          if(!result){
+               next(new ErrorHandler("password is incorrect",400));
+          }
 
-       let token =jwt.sign({id:user_id},process.env.ACCESS,{expiresIn: 60*60*60*60*24*30})
+          let token =jwt.sign({id:user._id},process.env.ACCESS,{expiresIn: 60*60*60*60*24*30})
       
-       res.cookies("accesstoken",token,{
-            httpOnly:true,
-            MaxAge:"70"
-       })
+          res.cookie("accesstoken",token,{
+               httpOnly:true,
+               MaxAge:"7d"
+          })
+   
+          res.status(200).json({status:true,message:"login successful"})
+          
+      });
 
-       res.status(200).json({statuc:true,message:"login successful"})
+
+
+      
 }))
 
 

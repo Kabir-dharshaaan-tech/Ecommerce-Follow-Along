@@ -7,6 +7,10 @@ const Signup = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Join our community</h2>
         <form>
           <div className="mb-4">
+          <label className="block text-gray-700">Name</label>
+          <input type="Name" className="mt-1 p-2 w-full border rounded-md"/>
+          </div>
+          <div className="mb-4">
             <label className="block text-gray-700">Email</label>
             <input type="email" className="mt-1 p-2 w-full border rounded-md"/>
           </div>
