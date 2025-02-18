@@ -165,7 +165,7 @@ if (file.mimetype.startsWith('image/')) cb(null, true); else cb(new Error('Only 
 
 - +builted the Sign-Up Page: by  Creating the UI using HTML & CSS.
 
-## Milestone 6 - User Signup with Secure Data Storage
+# Milestone 6 - User Signup with Secure Data Storage
 
 ### Description
 In this milestone, we’ve focused on implementing the backend endpoint for the signup page. The key objective was to ensure that user data, especially passwords, are securely stored in the database. By using **bcrypt** for password hashing, we are ensuring that passwords are encrypted before storing them, following best security practices.
@@ -174,4 +174,9 @@ In this milestone, we’ve focused on implementing the backend endpoint for the 
 - **Password Encryption:** The user’s password is hashed using bcrypt before storing it in the database.
 - **Secure User Data Storage:** User details (name, email, etc.) are securely stored in the database, ensuring that sensitive information like passwords are never saved as plain text.
   
+
+# Milestone 7 
+
+### Description
+In this milestone, we implemented the backend login functionality, which accepts user credentials (email/username and password), hashes the entered password using bcrypt, and compares it with the stored hashed password to validate the user's identity.
 
