@@ -199,3 +199,19 @@ In this milestone, we focused on developing a reusable Product Card Component an
 - +Array Mapping for Dynamic Rendering: Implemented mapping to iterate over product lists and render cards dynamically.
 
 - +Consistent UI Design: Ensured uniform styling for all products
+
+
+
+
+# Milestone 9 - Product Input Form  
+
+## Overview  
+In this milestone, we created a frontend form to take product details as input, including multiple images.  
+
+## Features  
+- Form to input product details  
+- Supports multiple image uploads  
+- Prepares data for future database storage  
+
+## Submission  
+Code is pushed to GitHub and publicly accessible.  

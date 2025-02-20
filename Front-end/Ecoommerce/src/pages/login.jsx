@@ -29,7 +29,7 @@ function Login() {
 
       if (response.data.status) {
         localStorage.setItem("token", response.data.token); 
-        navigate("/productpage"); 
+        navigate("/"); 
       }
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
