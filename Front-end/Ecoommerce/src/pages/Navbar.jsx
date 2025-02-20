@@ -1,8 +1,11 @@
+
+
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { TbLogin2 } from "react-icons/tb";
-
+import { FaShoppingCart } from "react-icons/fa"; 
 
 function Navbar() {
   return (
@@ -16,7 +19,7 @@ function Navbar() {
           Home
         </Link>
       </li>
-      <li className="inline-block">
+      <li className="inline-block mr-4">
         <Link
           to="/login"
           className="border px-4 py-2 rounded hover:bg-gray-100 flex items-center"
@@ -25,6 +28,7 @@ function Navbar() {
           Login
         </Link>
       </li>
+   
     </ul>
   );
 }

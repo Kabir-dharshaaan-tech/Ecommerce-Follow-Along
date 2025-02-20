@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBeer } from 'react-icons/fa';
-
+import ProductCard from "../components/ProductCard";
 
 function Home() {
   return (

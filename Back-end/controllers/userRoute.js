@@ -83,7 +83,7 @@ userRouter.post("/upload",upload.single("photo"),catchAsyncError(async(req,res,n
 
 
 userRouter.post('/login',catchAsyncError(async(req,res,next)=>{
-
+       
       const {email,password}=req.body;
 
       if(!email || !password)
