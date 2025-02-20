@@ -180,3 +180,22 @@ In this milestone, we’ve focused on implementing the backend endpoint for the 
 ### Description
 In this milestone, we implemented the backend login functionality, which accepts user credentials (email/username and password), hashes the entered password using bcrypt, and compares it with the stored hashed password to validate the user's identity.
 
+
+# Milestone 8
+
+### Description 
+
+In this milestone, we focused on developing a reusable Product Card Component and designed the homepage layout to display multiple product card dynamically.
+
+
+- +Features Implemented:
+
+- +Reusable Product Card Component: Displays product image, name, and price.
+
+- +Dynamic Data Handling: Passed product details via props to ensure reusability.
+
+- +Homepage Grid Layout: Used Flexbox/Grid for a structured and visually appealing product listing.
+
+- +Array Mapping for Dynamic Rendering: Implemented mapping to iterate over product lists and render cards dynamically.
+
+- +Consistent UI Design: Ensured uniform styling for all products
