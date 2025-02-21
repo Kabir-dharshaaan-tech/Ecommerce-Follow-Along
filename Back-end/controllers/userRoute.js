@@ -95,21 +95,21 @@ userRouter.post('/login',catchAsyncError(async(req,res,next)=>{
 
        if(!user)
        {
-            next(new ErrorHandler("please signup before login",400));
+          return  next(new ErrorHandler("please signup before login",400));
        }
        if(!user.isActivated)
        {
-            next(new ErrorHandler("please activate before login",400));
+           return next(new ErrorHandler("please activate before login",400));
        }
 
        bcrypt.compare(password, user.password, function(err, result) {
           if(err){
-               next(new ErrorHandler("internal server error",500)); 
+              return next(new ErrorHandler("internal server error",500)); 
           }
           if(!result){
-               next(new ErrorHandler("password is incorrect",400));
+              return next(new ErrorHandler("password is incorrect",400));
           }
-
+            console.log(result)
           let token =jwt.sign({id:user._id},process.env.ACCESS,{expiresIn: 60*60*60*60*24*30})
       
           res.cookie("accesstoken",token,{

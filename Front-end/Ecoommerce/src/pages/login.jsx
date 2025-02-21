@@ -26,9 +26,8 @@ function Login() {
         email,
         password,
       }, { withCredentials: true });
-
-      if (response.data.status) {
-        localStorage.setItem("token", response.data.token); 
+        
+      if (response.status==200) {
         navigate("/"); 
       }
     } catch (err) {
