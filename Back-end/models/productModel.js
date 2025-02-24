@@ -1,50 +1,53 @@
+
+
+
+
 let mongoose = require("mongoose")
 
-const ProductSchema =new mongoose.Schema(
-    {
+const productSchema= mongoose.Schema({
     name:{
         type:String,
-        required:[true,"Please enter the product name"]
-    },
-    price:{
-        type:Number,
-        require:true
+        required:true
     },
     description:{
         type:String,
-        require:true
+        required:true
     },
-    category:{
-        type:String,
-        require:true
+    tags:{
+        type:[String],
+        required:true
+    },
+
+    price:{
+        type:Number,
+        required:true
     },
     stock:{
         type:Number,
-        require:true
+        required:true
     },
-    image:{
-        type:[String],
-        require:true
-    },
-    tag:{
+    category:{
         type:String,
-        require:true
+        required:true
+    },
+    images:{
+        type:[String],
+        required:true
     },
     email:{
         type:String,
-        require:true,
-       
-        match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/,"please add a valid email address"]
+        required:true,
+        match:[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,'Please enter a valid email address']
+        
     
-    },
-    
-
-
+    }
 },
-{
-    timestamps:true,
-}
 
+{
+    timestamps: true
+}
 );
 
-module.exports = mongoose.model("Product",ProductSchema);
+
+ProductModel= mongoose.model("Product", productSchema)
+module.exports= ProductModel

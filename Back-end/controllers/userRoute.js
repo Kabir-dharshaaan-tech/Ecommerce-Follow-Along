@@ -6,7 +6,11 @@ const{catchAsyncError} =require("../middleware/catchAsyncError")
 const {ErrorHandler} =require("../utils/errorHandler")
 const {sendMail}=require("../utils/mail")
 const jwt=require("jsonwebtoken")
-const upload =require("../middleware/multer")
+const { upload } = require("../middleware/multer");
+
+
+
+
 const userRouter=express.Router()
 
 userRouter.post("/signup",catchAsyncError(async(req,res,next)=>{

@@ -1,0 +1,22 @@
+meta {
+  name: createproduct
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/product/createProduct
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  email: dharshaankabir@gmail.com
+  name: kabir
+  description: kjhgfgghjkjhgvb
+  category: Electronic
+  tags: ["kjhgfd","jhgfdf"]
+  price: 4500
+  images: @file(C:\Users\dhars\OneDrive\Pictures\Screenshots\ca.png)
+  stock: 2
+}

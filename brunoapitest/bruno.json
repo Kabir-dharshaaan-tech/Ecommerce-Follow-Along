@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "brunoapitest",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
