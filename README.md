@@ -215,3 +215,36 @@ In this milestone, we created a frontend form to take product details as input, 
 
 ## Submission  
 Code is pushed to GitHub and publicly accessible.  
+
+
+
+# Milestone 10 - Product Schema and API Endpoint  
+
+## Overview  
+In this milestone, we focused on building the backend for product management. We created a **Mongoose schema** to define product data structure and implemented a **POST API endpoint** to store product details in MongoDB.  
+
+## Learning Goals 🎯  
+By completing this milestone, we:  
+- Created a **Product Schema** with validation.  
+- Developed a **POST endpoint** to receive and store product details.  
+- Ensured data integrity with validation techniques.  
+
+## Features Implemented 🚀  
+
+### 1. **Product Schema (Mongoose Model)**  
+Defined a schema for storing product details with the following fields:  
+- `name` (String, required)  
+- `description` (String, required)  
+- `price` (Number, required, min value set)  
+- `imageUrl` (String, required)  
+- `createdAt` & `updatedAt` (Timestamps)  
+
+### 2. **POST API Endpoint (`/api/products`)**  
+- Accepts product details in **JSON format**.  
+- Validates required fields before storing in MongoDB.  
+- Returns success/failure response.  
+
+### 3. **Validation and Error Handling**  
+- Ensures required fields are provided.  
+- Validates correct data types (e.g., `price` must be a number).  
+- Prevents duplicate entries (if necessary).  
