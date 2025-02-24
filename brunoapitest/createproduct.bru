@@ -4,20 +4,16 @@ meta {
   seq: 2
 }
 
-post {
-  url: http://localhost:8080/product/createProduct
+get {
+  url: http://localhost:8080/product/allproduct
   body: multipartForm
   auth: none
-}
-
-params:query {
-  : 
 }
 
 body:multipart-form {
   email: dharshaankabir@gmail.com
   name: kabir
-  description: kjhgfgghjkjhgvb
+  description: kjhgfgghjjhgvb
   category: Electronic
   tags: ["kjhgfd","jhgfdf"]
   price: 4500

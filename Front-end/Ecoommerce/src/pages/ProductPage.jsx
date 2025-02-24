@@ -1,12 +1,29 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import productsData from "../data.json";
-
+import axios from "axios"
 function ProductPage() {
   const [products, setProducts] = useState([]);
 
+
+
   useEffect(() => {
-    setProducts(productsData);
+
+    const fetchData = async () => {
+      try {
+          let response = await axios.get("http://localhost:8080/product/allproduct");
+          
+          if (response.status === 200) {  
+             
+            setProducts(response.data.message);
+          }
+      } catch (error) {
+          console.error("Error fetching products:", error);
+      }
+  };
+
+  fetchData(); 
+    
   }, []);
 
   return (
@@ -17,7 +34,7 @@ function ProductPage() {
           <ProductCard
             key={index}
             name={product.name}
-            image={product.image}
+            image={product.images}
             description={product.description}
             price={product.price}
           />
