@@ -248,3 +248,9 @@ Defined a schema for storing product details with the following fields:
 - Ensures required fields are provided.  
 - Validates correct data types (e.g., `price` must be a number).  
 - Prevents duplicate entries (if necessary).  
+
+
+### Milestone 11 - Home Page with Dynamic Products  
+- Created an endpoint to fetch all products from MongoDB.  
+- Implemented a frontend function to retrieve and display product data.  
+- Dynamically rendered products using the existing Product Card component.  
