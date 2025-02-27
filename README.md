@@ -254,3 +254,9 @@ Defined a schema for storing product details with the following fields:
 - Created an endpoint to fetch all products from MongoDB.  
 - Implemented a frontend function to retrieve and display product data.  
 - Dynamically rendered products using the existing Product Card component.  
+
+
+### Milestone 12 - My Products Page  
+- Implemented an endpoint to fetch products based on user email from MongoDB.  
+- Created a function in the frontend to retrieve and display filtered product data.  
+- Dynamically rendered products using the existing Product Card component.  
