@@ -260,3 +260,56 @@ Defined a schema for storing product details with the following fields:
 - Implemented an endpoint to fetch products based on user email from MongoDB.  
 - Created a function in the frontend to retrieve and display filtered product data.  
 - Dynamically rendered products using the existing Product Card component.  
+
+
+
+
+### Milestone 13 - Edit Uploaded Products
+Overview
++Welcome to Milestone 13! In this milestone, we will add functionality to edit uploaded products. We will implement an edit button and create a backend endpoint to update product details inside the MongoDB database.
+Learning Goals
++Understand how to write an endpoint that updates existing data in MongoDB.
++Learn how to auto-fill a form with previous product data and provide an option to edit.
+Steps for Milestone 13
++Backend - Create an Update Endpoint
+
++Write an endpoint that receives updated product data and modifies the existing data inside MongoDB.
++Frontend - Implement Edit Button & Auto-fill Form
+
++Add an edit button to the product card.
++When the edit button is clicked, send the selected product’s data to a form.
++Auto-fill the form with previous product details.
++Provide an option to edit and save the changes.
+Testing the Implementation
++Start your backend server.
++Start your frontend application.
++Navigate to a product and click the edit button.
++Modify the product details and save the changes.
++Verify that the product data is updated in MongoDB.
+Summary
++Created an API endpoint to update product details in MongoDB.
++Added an edit button to the product card.
+
+
+
+### Milestone 14 - Delete Product Functionality
+Overview
++Welcome to Milestone 14! In this milestone, we will implement the functionality to delete a product. We will add a delete button to the product card and create a backend endpoint to remove a product from MongoDB using its ID.
+Learning Goals 🎯
++Understand how to write an endpoint that deletes a product by its ID from MongoDB.
+Steps for Milestone 14
++Backend - Create a Delete Endpoint
+
++Write an endpoint that receives a product ID and deletes the corresponding product from MongoDB.
++Frontend - Implement Delete Button
+
++Add a delete button to the product card.
++When the delete button is clicked, send the product ID to the backend endpoint.
+Testing the Implementation
++Start your backend server.
++Start your frontend application.
++Click the delete button on a product.
++Verify that the product is removed from MongoDB.
+Summary
++Created an API endpoint to delete a product from MongoDB by ID.
++Added a delete button to the product card.

@@ -1,36 +1,30 @@
 
 
 
+
 import React, { useState } from "react";
-import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  const handlePasswordToggle = () => {
-    setShowPassword(!showPassword);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:8080/user/login", {
-        email,
-        password,
-      }, { withCredentials: true });
-        
-      if (response.status==200) {
-        navigate("/"); 
+      const response = await axios.post("http://localhost:8080/user/login", { email, password }, { withCredentials: true });
+
+      console.log("✅ Login Successful:", response.data);
+      if (response.status === 200) {
+        navigate("/");
       }
     } catch (err) {
+      console.error("❌ Login Error:", err);
       setError(err.response?.data?.message || "Login failed");
     }
   };
@@ -51,47 +45,23 @@ function Login() {
             required
           />
         </div>
-        <div className="mb-4 relative">
-          <label htmlFor="password" className="block mb-2">Password</label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              className="w-full p-2 border rounded pr-10"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button
-              type="button"
-              onClick={handlePasswordToggle}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600"
-            >
-              {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
-            </button>
-          </div>
-        </div>
-        <div className="mb-4 flex items-center">
-          <input type="checkbox" id="rememberMe" className="mr-2" />
-          <label htmlFor="rememberMe">Remember me</label>
-        </div>
         <div className="mb-4">
-          <a href="/forgot-password" className="text-blue-500">Forgot your password?</a>
+          <label htmlFor="password" className="block mb-2">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="w-full p-2 border rounded"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
-        <button
-          type="submit"
-          className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
+        <button type="submit" className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600">
           Login
         </button>
       </form>
-      <p className="mt-4">
-        Don't have an account? <a href="/signup" className="text-blue-500">Sign up</a>
-      </p>
     </div>
   );
 }
 
 export default Login;
-
-
