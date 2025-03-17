@@ -1,8 +1,6 @@
 
 
 
-
-
 const express = require("express");
 const ProductModel = require("../models/productModel");
 const { catchAsyncError } = require("../middleware/catchAsyncError");
@@ -10,10 +8,11 @@ const { ErrorHandler } = require("../utils/errorHandler");
 const { UserModel } = require("../models/useModel");
 const { productUpload } = require("../middleware/multer");
 const path = require("path");
+const auth = require("../middleware/auth"); 
 
 const productRouter = express.Router();
 
-// ✅ Create Product API
+
 productRouter.post("/createProduct", productUpload.array("images", 10), catchAsyncError(async (req, res, next) => {
     const { email, name, description, category, tags, price, stock } = req.body;
 
@@ -48,7 +47,13 @@ productRouter.post("/createProduct", productUpload.array("images", 10), catchAsy
     res.status(201).json({ message: "Product created successfully" });
 }));
 
-// ✅ Get All Products API
+
+productRouter.post('/cart', auth, catchAsyncError(async (req, res, next) => {
+    
+    res.status(200).json({ message: "Cart API working fine" });
+}));
+
+
 productRouter.get("/allproduct", catchAsyncError(async (req, res, next) => {
     let allProduct = await ProductModel.find();
 
@@ -62,7 +67,7 @@ productRouter.get("/allproduct", catchAsyncError(async (req, res, next) => {
     res.status(200).json({ status: true, message: allProduct });
 }));
 
-// ✅ Update Product API
+
 productRouter.put("/update/:id", catchAsyncError(async (req, res, next) => {
     const { id } = req.params;
     const updatedData = req.body;
@@ -76,7 +81,7 @@ productRouter.put("/update/:id", catchAsyncError(async (req, res, next) => {
     res.status(200).json({ message: "Product updated successfully", product });
 }));
 
-// ✅ Delete Product API
+
 productRouter.delete("/delete/:id", catchAsyncError(async (req, res, next) => {
     const { id } = req.params;
     const product = await ProductModel.findByIdAndDelete(id);
@@ -89,4 +94,3 @@ productRouter.delete("/delete/:id", catchAsyncError(async (req, res, next) => {
 }));
 
 module.exports = productRouter;
-
