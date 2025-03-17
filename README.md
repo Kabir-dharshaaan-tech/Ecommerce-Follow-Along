@@ -313,3 +313,27 @@ Testing the Implementation
 Summary
 +Created an API endpoint to delete a product from MongoDB by ID.
 +Added a delete button to the product card.
+
+
+## Milestone 15 
+- Created an new Nav component with links to all pages
+- Created a Navbar and made it responsive to all screen  
+
+- Created a new page that displays all product data
+
+## Milestone 16
+- Created a new page that store all product data
+
+
+## Milestone 17
+- Wrote the cart schema to store products
+- Wrote an endpoint to store receive and store product details in cart   
+
+## Milestone 18
+- Created an Backend endpoint for cart page
+- Written an endpoint to get products inside cart for user
+
+
+
+
+
