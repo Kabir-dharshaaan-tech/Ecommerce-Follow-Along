@@ -333,6 +333,29 @@ Summary
 - Created an Backend endpoint for cart page
 - Written an endpoint to get products inside cart for user
 
+## Milestone 19 - Cart Page & Quantity Control
+
+- Created a cart page that displays products with + and - buttons to control quantity.  
+- Implemented backend endpoints to increase or decrease product quantity dynamically.  
+- Synced frontend and backend for smooth cart updates.
+
+## Milestone 20 - Profile Page & User Data
+
+- Built a profile page to display user photo, name, email, and addresses.  
+- Created a backend endpoint to fetch user data using email.  
+- Added "Add address" button and conditional message if no address is found.
+
+
+## Milestone 21 - Address Form Page
+
+- Created a frontend form to collect address details like country, city, zip code, etc.  
+- Used state to store form inputs.  
+- Linked the "Add address" button from profile page to this address form.
+
+## Milestone 22 - Save Address to DB
+
+- Created a backend endpoint to receive address data from the frontend.  
+- Stored the received address inside the user's address array in the database.
 
 
 
