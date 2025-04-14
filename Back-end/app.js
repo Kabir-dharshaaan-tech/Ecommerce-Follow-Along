@@ -1,29 +1,42 @@
-
-
-
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors")
 const app = express();
-const path=require("path")
 app.use(express.json());
+const ErrorMiddleware= require("./middleware/error")
+const path=require("path")
+const cookieParser =require("cookie-parser")
+app.use(cookieParser())
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  origin:"http://localhost:5173",
+  credentials:true
+}))
 
-const { catchAsyncError } = require("./middleware/catchAsyncError");
-const { ErrorHandler } = require("./utils/errorHandler");
-const errMiddleware = require("./middleware/error");
-const userRouter = require("./controllers/userRoute");  
-const productRouter=require("./controllers/productRoutes")
+const {userRoute} = require('./controllers/userRoute');
+
+const productRouter = require("./controllers/productRoutes");
+const orderRouter =require("./controllers/orderRoute")
+
+
+app.get("/test", async (req, res) => {
+  res.send("hello.....");
+});
+
+
+console.log(path.join(__dirname, 'uploadproducts'))
+
+
+app.use('/profile-photo', express.static(path.join(__dirname, 'upload')));
 
 app.use('/products-photo', express.static(path.join(__dirname, 'uploadproducts')));
 
-app.use("/user", userRouter);
-app.use("/product",productRouter);
+app.use("/user",userRoute)
+app.use("/product", productRouter);
+app.use("/order",orderRouter)
 
-app.use(errMiddleware);
+
+
+
+app.use(ErrorMiddleware)
 
 module.exports = { app };

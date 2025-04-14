@@ -1,0 +1,23 @@
+meta {
+  name: createProducts
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/product/create-product
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  name: Stylish T-Shirt
+  description: A trendy and comfortable cotton T-shirt available in multiple colors.
+  tags: ["fashion", "t-shirt", "cotton", "casual"]
+  price: 9999
+  stock: 50
+  category: Clothing
+  email: sourabh.dhanarajan@gmail.com
+  images: @file(C:\Users\HP\Pictures\Screenshots\Screenshot 2025-02-22 174819.png)
+  images: @file(C:\Users\HP\Pictures\Screenshots\Screenshot 2025-02-22 173413.png)
+}

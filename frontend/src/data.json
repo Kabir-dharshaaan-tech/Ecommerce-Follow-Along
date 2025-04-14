@@ -1,0 +1,93 @@
+ 
+   [
+    {
+      "name": "Product 1",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/shirt/w/b/c/xxl-formal-shirt-metronaut-original-imahfccfkfdgkvgw.jpeg?q=90&crop=false",
+      "description": "This is a limited-time product offering a perfect balance of quality and value. Grab it while it lasts!",
+      "price": 100
+    },
+    {
+      "name": "Product 2",
+      "image": "https://d1pdzcnm6xgxlz.cloudfront.net/tops/8905875300014-18.jpg",
+      "description": "This is another high-quality product designed for everyday use. Get yours today!",
+      "price": 200
+    },
+    {
+      "name": "Product 3",
+      "image": "https://img4.dhresource.com/webp/m/0x0/f3/albu/jc/j/14/586d7e3c-95fa-4bc2-b465-0386aec38513.jpg",
+      "description": "Experience premium quality and durability with this product. Don't miss out!",
+      "price": 300
+    },
+    {
+      "name": "Product 4",
+      "image": "https://m.media-amazon.com/images/I/81Nt-P5Xb1L._AC_UY1100_.jpg",
+      "description": "An essential product to enhance your daily routine. Available for a limited time!",
+      "price": 400
+    },
+    {
+      "name": "Product 5",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Upgrade your lifestyle with this exclusive product. Order now!",
+      "price": 500
+    },
+    {
+      "name": "Product 6",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "A must-have product for everyone. Limited stocks available!",
+      "price": 600
+    },
+    {
+      "name": "Product 7",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Designed to provide maximum comfort and style. Don't miss out!",
+      "price": 700
+    },
+    {
+      "name": "Product 8",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "A top-quality product that exceeds expectations. Buy now!",
+      "price": 800
+    },
+    {
+      "name": "Product 9",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Perfect for those who appreciate quality and style. Get yours now!",
+      "price": 900
+    },
+    {
+      "name": "Product 10",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "An exclusive product with unbeatable quality. Shop today!",
+      "price": 1000
+    },
+    {
+      "name": "Product 11",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Premium quality that speaks for itself. Limited time offer!",
+      "price": 1100
+    },
+    {
+      "name": "Product 12",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Your go-to product for daily use. Grab yours now!",
+      "price": 1200
+    },
+    {
+      "name": "Product 13",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Don't compromise on quality. Get this amazing product now!",
+      "price": 1300
+    },
+    {
+      "name": "Product 14",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "One of our best-selling products. Secure yours today!",
+      "price": 1400
+    },
+    {
+      "name": "Product 15",
+      "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/k/8/b/-original-imagyk8qaafzmfbc.jpeg?q=70&crop=false",
+      "description": "Make a statement with this high-quality product. Buy now!",
+      "price": 1500
+    }
+  ]

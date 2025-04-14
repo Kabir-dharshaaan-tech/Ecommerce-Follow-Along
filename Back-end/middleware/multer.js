@@ -1,26 +1,31 @@
+let multer=require("multer")
+let path=require("path")
 
 
-
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
-
-
-const uploadDir = path.join(__dirname, "../uploadproducts");
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-const productStorage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, uploadDir);
+      cb(null, path.join(__dirname,"../upload"))
     },
     filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random())
+      cb(null, file.fieldname + '-' + uniqueSuffix+".png")
     }
-});
+  })
 
-const productUpload = multer({ storage: productStorage });
+  const productStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname,"../uploadproducts"))
+      console.log(path.join(__dirname,"../uploadproducts"),"+++++++++++++++++++++++++")
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random())
+      cb(null, file.fieldname + '-' + uniqueSuffix+".png")
+    }
+  })
 
-module.exports = { productUpload };
+  const productUpload = multer({ storage: productStorage })
+  
+  const upload = multer({ storage: storage })
+
+  module.exports={upload,productUpload};
+  

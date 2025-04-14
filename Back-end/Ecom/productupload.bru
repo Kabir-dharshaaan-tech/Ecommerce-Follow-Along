@@ -1,0 +1,23 @@
+meta {
+  name: productupload
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8975/product/createProduct
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  name: abhi
+  description: The latest smartphone with advanced features like 5G connectivity, great camera, and long-lasting battery.
+  tags: ["electronics", "smartphone", "5G", "new", "sale"]
+  price: 46675
+  stock: 34
+  category: Electronics
+  email: seller@example.com
+  images: @file(C:\Users\Abhiram Kollepara\OneDrive\Pictures\Screenshots\Screenshot 2025-02-18 100850.png)
+  images: @file(C:\Users\Abhiram Kollepara\OneDrive\Pictures\Screenshots\Screenshot (200).png)
+}

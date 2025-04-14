@@ -1,18 +1,22 @@
-const jwt = require("jsonwebtoken");
 
+let jwt = require("jsonwebtoken");
+require("dotenv").config()
 const auth = (req, res, next) => {
-    try {
-        const token = req.header("Authorization").replace("Bearer ", "");
-        if (!token) {
-            return res.status(401).json({ message: "No token, authorization denied" });
+   
+    const token = req.cookies.accesstoken;  
+    console.log(req.cookies)
+    if (!token) {
+        return res.status(401).json("Token not found");
+    }
+
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json("Invalid or expired token");
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded;
+        req.user_id = decoded.id;  
         next();
-    } catch (err) {
-        res.status(401).json({ message: "Invalid token" });
-    }
+    }); 
 };
 
 module.exports = auth;

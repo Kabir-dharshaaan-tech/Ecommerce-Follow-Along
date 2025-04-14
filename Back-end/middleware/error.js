@@ -1,13 +1,14 @@
 
 
 
-module.exports=(err,req,res,next)=>{
-         
 
-       
-       err.message =err.message || "internal server error"
-       err.statusCode=err.statusCode || 500
-       
-      
-     res.status(err.statusCode).json({status:false,message:err.message})
+module.exports=(err,req,res,next)=>{
+  console.log(err)
+  err.statusCode=err.statusCode ||500
+  err.message=err.message || "internal server error"
+
+  res.status(err.statusCode).json({
+    success:false,
+    message:err.message
+  })
 }
