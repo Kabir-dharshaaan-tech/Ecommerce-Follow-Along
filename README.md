@@ -357,6 +357,57 @@ Summary
 - Created a backend endpoint to receive address data from the frontend.  
 - Stored the received address inside the user's address array in the database.
 
+## Milestone 23 - Select Address & Place Order
+
+- Added a "Place Order" button in the cart page that navigates to the select address page.
+- Created a select address page that displays all available addresses and allows the user to choose a delivery address.
+- Developed a backend endpoint to fetch all addresses of the user.
+- Created Mongoose schema for storing order details.
+
+
+## Milestone 24 - Order Confirmation Page
+
+- Created an order confirmation page displaying the list of ordered products.
+- Showed the selected delivery address and total cart value.
+- Added a "Place Order" button at the bottom to confirm the order.
+
+
+
+## Milestone 25 - Backend Endpoint for Placing Order
+
+- Created a backend endpoint to place an order by receiving product, user, and address details.
+- Retrieved user information using email and stored the order details in the MongoDB order collection using the order schema.
+- Ensured each product order is unique, even with the same address.
+
+
+
+## Milestone 26 - Backend Endpoint to Retrieve User Orders
+
+- Created a backend endpoint to retrieve all orders for a specific user.
+- Used the user's email to fetch their user ID and retrieved all their orders from the database.
+- Sent the user's order details in the response.
+
+
+## Milestone 27 - Frontend Page for My Orders
+
+- Created a "My Orders" page to display all user orders.
+- Sent a GET request to the `/my-orders` endpoint, passing the user's email to retrieve their orders.
+- Displayed the user's orders on the page and added a "My Orders" link to the navbar for easy navigation.
+
+## Milestone 28 - Cancel Order Feature
+
+- Added a "Cancel Order" button for each order in the "My Orders" page.
+- The button is hidden if the order is already canceled.
+- Created a backend endpoint to handle order cancellation.
+- The endpoint receives the `order-id`, updates the order status to "canceled", and saves the changes.
+
+## Milestone 29 - PayPal Integration (Frontend)
+
+- Created radio buttons for payment options: COD (Cash on Delivery) and Online Payment.
+- On selecting Online Payment, PayPal payment buttons are displayed.
+- Integrated the PayPal API by creating a PayPal sandbox account.
+- Copied the UserID and ClientID from PayPal for future integration in the next milestone.
+
 
 
 
